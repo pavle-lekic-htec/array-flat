@@ -1,0 +1,26 @@
+{
+  "name": "array-flat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require @babel/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pavle-lekic-htec/array-flat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pavle-lekic-htec/array-flat/issues"
+  },
+  "homepage": "https://github.com/pavle-lekic-htec/array-flat#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/register": "^7.8.3",
+    "mocha": "^7.0.1"
+  }
+}
