@@ -18,24 +18,32 @@ export const flatArray = (arr) => {
 	}
 
 	const resultingArray = [];
-	const state = [{arr, index: 0}];
-	let currentPosition;
+	const arrStack = [arr];
+	const indexStack = [0];
 	let currentItem;
+	let currentArr;
+	let currentIndex;
 
-	while (state.length > 0) {
-		currentPosition = state[state.length - 1];
-		currentItem = currentPosition.arr[currentPosition.index];
-		if (currentPosition.index === currentPosition.arr.length - 1 || currentPosition.arr.length === 0) { // last element
-			state.pop();
+	while (arrStack.length > 0) {
+		currentArr = arrStack[arrStack.length - 1];
+		currentIndex = indexStack[indexStack.length - 1];
+
+		if (currentIndex === currentArr.length - 1 || currentArr.length === 0) { // last element
+			indexStack.pop();
+			arrStack.pop();
 		} else {
-			currentPosition.index++;
+			indexStack[indexStack.length - 1]++;
 		}
+
+		currentItem = currentArr[currentIndex];
 		if (Array.isArray(currentItem)) {
 			if (currentItem.length > 0)
-				state.push({arr: currentItem, index: 0});
+				arrStack.push(currentItem);
+				indexStack.push(0);
 		} else {
 			resultingArray.push(currentItem);
 		}
 	}
+
 	return resultingArray;
 }
